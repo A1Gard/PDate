@@ -3,22 +3,49 @@ unit PDate;
  * @name : PDate
  * @programmer : A1Gard
  * @time :  6 Agu 2011
+ * update : 21 Jul 2015
  * @vertion : 1.1
  *)
 
 interface
 
 uses
-   SysUtils,ShlObj,ComObj,ActiveX,Windows ;
+   SysUtils ;
 
 function PersiantoGer(PersianD: ShortString; ResultKind: Byte = 0): ShortString;
 function GerToPersian(tt:tdatetime):String;
 function UIntToDateTime (const Number : UInt64 ):TDateTime ;
 function GerToWord (const Date : string  ) : LongWord;
 function PersianToInt (const DateSTr : string ) :Int64 ;
-
+function DateTimeToUnix(dtDate: TDateTime): Longint;
+function UnixToDateTime(USec: Longint): TDateTime;
 
 implementation
+
+const
+  UnixStartDate: TDateTime = 25569.0; // 01/01/1970
+  
+  
+  
+(**
+ * @todo: convert standrad windows datetime to Unix time stamp
+ * @param (TDateTime|float) standrad windows datetime format
+ * @result (Longint)  
+ **)
+function DateTimeToUnix(dtDate: TDateTime): Longint;
+begin
+  Result := Round((dtDate - UnixStartDate) * 86400);
+end;
+(**
+ * @todo: Unix time stamp to stamp convert standrad windows datetime 
+ * @param (Longint)  
+ * @result (TDateTime|float) standrad windows datetime format
+ **)
+function UnixToDateTime(USec: Longint): TDateTime;
+begin
+  Result := (Usec / 86400) + UnixStartDate;
+end;
+
 
 (**
  * @todo: convert Persian date to Gregorian date
@@ -292,8 +319,8 @@ begin
 end;
 
  (**
-  * @todo: timpsamp to windows standard DateTime
-  * @param (unsigned int64) timestamp for convert
+  * @todo: customint to windows standard DateTime
+  * @param (unsigned int64) customint for convert
   * @result (TDateTime|float)
   **)
 function UIntToDateTime (const Number : UInt64 ):TDateTime ;
@@ -303,7 +330,7 @@ end;
 
 
  (**
-  * @todo: Gregorian date to timestamp
+  * @todo: Gregorian date to customint
   * @param (string) input for convert
   * @result (LongWord)
   **)
@@ -328,7 +355,7 @@ begin
 end;
 
  (**
-  * @todo: Persian date to timestamp
+  * @todo: Persian date to customint
   * @param (string) input for convert
   * @result (Int64)
   **)
