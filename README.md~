@@ -6,8 +6,6 @@ The best Delphi & lazarus unit for convert windows standard DateTime to PersianD
 added lazarus compatibility
 added function GetTheFirstDayOfThisMonth
 added function GetTheFirstDayOfThisWeek
-added function GetPersianDayWeek
-fixed bug in PersiantoGer function
 
 ###version 1.2:
 added function DateTimeToUnix
