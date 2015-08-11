@@ -3,8 +3,13 @@ unit PDate;
  * @name : PDate
  * @programmer : A1Gard
  * @time :  6 Aug 2011
+<<<<<<< HEAD
  * update : 12 Aug 2015
  * @vertion : 1.3.1
+=======
+ * @update : 4 Aug 2015
+ * @vertion : 1.3
+>>>>>>> origin
  *)
 
 interface
@@ -447,6 +452,7 @@ var
    b : byte;
 begin
   b := StrToInt(Copy(GerToPersian(dt),9,2));
+<<<<<<< HEAD
 
   if b = 1 then
   begin
@@ -457,6 +463,10 @@ begin
   // ShowMessage(FloatToStr(dt));
   Result := dt - b ;
   // ShowMessage(GerToPersian(Result));
+=======
+  dec(b);
+  Result := dt - b ;
+>>>>>>> origin
 end;
 
 
@@ -472,8 +482,12 @@ var
    dtt : TDateTime;
 begin
   b := StrToInt(Copy(GerToPersian(dt),9,2));
+<<<<<<< HEAD
 
   for i := 1 to 31 do
+=======
+  for i := 0 to 31 do
+>>>>>>> origin
   begin
     dtt := dt + i;
     b := StrToInt(Copy(GerToPersian(dtt),9,2));
