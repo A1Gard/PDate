@@ -2,9 +2,9 @@ unit PDate;
 (**
  * @name : PDate
  * @programmer : A1Gard
- * @time :  6 Agu 2011
- * update : 21 Jul 2015
- * @vertion : 1.1
+ * @time :  6 Aug 2011
+ * update : 12 Aug 2015
+ * @vertion : 1.3.1
  *)
 
 interface
@@ -19,6 +19,10 @@ function GerToWord (const Date : string  ) : LongWord;
 function PersianToInt (const DateSTr : string ) :Int64 ;
 function DateTimeToUnix(dtDate: TDateTime): Longint;
 function UnixToDateTime(USec: Longint): TDateTime;
+function GetPersianDayWeek(const dt: TDateTime):byte;
+function GetTheFirstDayOfThisMonth(const dt: TDateTime):TDateTime;
+function GetTheLastDayOfThisMonth(const dt: TDateTime):TDateTime;
+
 
 implementation
 
@@ -79,6 +83,11 @@ var
   sYY, sMM, sDD: ShortString;
   I: Integer;
 begin
+  if Length(PersianD) < 9 then
+  begin
+    Result := '1970/01/01';
+    Exit;
+  end;
   for i := 0 to 999 do
 	begin
     LeapYearSh[i] := (i * 4) + 1275 ;
@@ -90,6 +99,7 @@ begin
   a.da_mon  := StrToInt(Copy(PersianD, 6, 2));
   a.da_year := StrToInt(Copy(PersianD, 1, 4));
   b.da_year := a.da_year + 621;
+
   Inc(b.da_year, TrueTo1(((a.da_mon > 10) or ((a.da_mon = 10) and (a.da_day >= 12)))
     or ((LeapYearSh[(a.da_year - 1275) div 4] <> a.da_year) and
     ((a.da_mon = 10) and (a.da_day = 11)))));
@@ -111,6 +121,9 @@ begin
     b.da_day := LastDayCountMi;
   end;
   Inc(b.da_mon);
+  sYY := '';
+  sMM := '';
+  sDD := '';
   if b.da_year < 1000 then sYY := sYY + '0';
   if b.da_year < 100 then sYY := sYY + '0';
   if b.da_year < 10 then sYY := sYY + '0';
@@ -118,7 +131,6 @@ begin
 
   if b.da_mon < 10 then sMM := sMM + '0';
   sMM := sMM + IntToStr(b.da_mon);
-
   if b.da_day < 10 then sDD := sDD + '0';
   sDD := sDD + IntToStr(b.da_day);
 
@@ -126,6 +138,7 @@ begin
     0: Result := sYY + '/' + sMM + '/' + sDD;
     1: Result := sYY + ' ' + monthes[b.da_mon - 1] + ' ' + sDD;
   end;
+
 end;
 
 
@@ -366,7 +379,6 @@ begin
   diy := StrToIntDef(Copy(DateSTr,1,4),0);
   dim := StrToIntDef(Copy(DateSTr,6,2),0);
   did := StrToIntDef(Copy(DateSTr,9,2),0);
-
   i1 := diy - 1279 ;
 
   Inc(i1);
@@ -408,6 +420,69 @@ begin
   Result := itotal ;
 end;
 
+(**
+ * @todo: return Persian day week
+ * @param (TDateTime) dt
+ * @result (byte)
+ **)
+function GetPersianDayWeek(const dt: TDateTime):byte;
+var
+   b : byte;
+begin
+   b := DayOfWeek(dt);
+   if (b < 7) then
+      inc(b)
+   else
+     b := 1 ;
+   Result := b ;;
+end;
 
+(**
+ * @todo: Find the first Persian week from input date
+ * @param (TDateTime) to find persian date
+ * @result (TDateTime)
+ **)
+function GetTheFirstDayOfThisMonth(const dt: TDateTime):TDateTime;
+var
+   b : byte;
+begin
+  b := StrToInt(Copy(GerToPersian(dt),9,2));
+
+  if b = 1 then
+  begin
+    Result := dt;
+    Exit;
+  end;
+  dec(b);
+  // ShowMessage(FloatToStr(dt));
+  Result := dt - b ;
+  // ShowMessage(GerToPersian(Result));
+end;
+
+
+(**
+ * @todo: Find the first Persian month from input date
+ * @param (TDateTime) to find persian date
+ * @result (TDateTime)
+ **)
+function GetTheLastDayOfThisMonth(const dt: TDateTime):TDateTime;
+var
+   b : byte;
+   i : integer;
+   dtt : TDateTime;
+begin
+  b := StrToInt(Copy(GerToPersian(dt),9,2));
+
+  for i := 1 to 31 do
+  begin
+    dtt := dt + i;
+    b := StrToInt(Copy(GerToPersian(dtt),9,2));
+    if b = 1 then
+    begin
+      Result := dtt - 1;
+      Break;
+    end;
+  end;
+end;
 
 end.
