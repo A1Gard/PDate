@@ -14,6 +14,7 @@ added lazarus compatibility <br />
 added function GetTheFirstDayOfThisMonth <br />
 added function GetTheFirstDayOfThisWeek <br />
 added function GetPersianDayWeek <br />
+added function Delphi DatePicker component <br />
 fixed bug in PersiantoGer function <br />
 
 ###version 1.2:
