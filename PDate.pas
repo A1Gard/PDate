@@ -6,13 +6,8 @@ unit PDate;
  * @name : PDate
  * @programmer : A1Gard
  * @time :  6 Aug 2011
-<<<<<<< HEAD
- * update : 12 Aug 2015
- * @vertion : 1.3.1
-=======
- * @update : 4 Aug 2015
- * @vertion : 1.3
->>>>>>> origin
+ * update : 09 Aug 2016
+ * @vertion : 1.3.2
  *)
 
 interface
