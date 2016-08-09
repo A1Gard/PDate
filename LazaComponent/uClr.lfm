@@ -1,0 +1,105 @@
+object frmCldr: TfrmCldr
+  Left = 0
+  Height = 209
+  Top = 24
+  Width = 296
+  BiDiMode = bdRightToLeft
+  BorderStyle = bsNone
+  Caption = 'انتخاب تاریخ هجری شمسی'
+  ClientHeight = 209
+  ClientWidth = 296
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  ParentBiDiMode = False
+  Position = poOwnerFormCenter
+  LCLVersion = '1.6.0.4'
+  object pnlTop: TPanel
+    Left = 0
+    Height = 27
+    Top = 0
+    Width = 296
+    Align = alTop
+    ClientHeight = 27
+    ClientWidth = 296
+    TabOrder = 0
+    object btnNext: TButton
+      Left = 261
+      Height = 25
+      Top = 1
+      Width = 34
+      Align = alRight
+      Caption = '>'
+      OnClick = btnNextClick
+      TabOrder = 0
+    end
+    object cbbMonth: TComboBox
+      Left = 160
+      Height = 25
+      Top = 1
+      Width = 101
+      Align = alRight
+      ItemHeight = 0
+      Items.Strings = (
+        'فروردین'
+        'اردیبهشت'
+        'خرداد'
+        'تیر'
+        'مرداد'
+        'شهریور'
+        'مهر'
+        'آبان'
+        'آذر'
+        'دی'
+        'بهمن'
+        'اسفند'
+      )
+      OnChange = cbbMonthChange
+      TabOrder = 1
+      Text = 'cbbMonth'
+    end
+    object btnPrv: TButton
+      Left = 131
+      Height = 25
+      Top = 1
+      Width = 29
+      Align = alRight
+      Caption = '<'
+      OnClick = btnPrvClick
+      TabOrder = 2
+    end
+    object seYear: TSpinEdit
+      Left = 0
+      Height = 25
+      Top = 1
+      Width = 97
+      MaxValue = 9999
+      MinValue = 1
+      OnChange = seYearChange
+      TabOrder = 3
+      Value = 1342
+    end
+  end
+  object sgCldr: TStringGrid
+    Left = 0
+    Height = 182
+    Top = 27
+    Width = 296
+    Align = alClient
+    ColCount = 7
+    DefaultColWidth = 40
+    FixedCols = 0
+    RowCount = 7
+    TabOrder = 1
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    OnDblClick = sgCldrDblClick
+    OnDrawCell = sgCldrDrawCell
+    OnKeyPress = sgCldrKeyPress
+  end
+end

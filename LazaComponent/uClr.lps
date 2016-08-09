@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="uClr.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="20"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../DelphiComponent _extend/EditEx.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3"/>
+        <CursorPos X="39" Y="14"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="editexpersiandate.pas"/>
+        <UnitName Value="EditExPersianDate"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos X="56" Y="88"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uClr.pas"/>
+        <ComponentName Value="frmCldr"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="25"/>
+        <CursorPos X="34" Y="39"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+    </Units>
+    <JumpHistory Count="8" HistoryIndex="7">
+      <Position1>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="21" Column="11" TopLine="8"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="20" Column="44" TopLine="5"/>
+      </Position2>
+      <Position3>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="262" Column="5" TopLine="233"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="15"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="26" Column="46" TopLine="11"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="15" Column="5" TopLine="2"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="18" Column="31"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uClr.pas"/>
+        <Caret Line="9" Column="30" TopLine="7"/>
+      </Position8>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

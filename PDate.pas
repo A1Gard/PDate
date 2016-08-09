@@ -7,7 +7,7 @@ unit PDate;
  * @programmer : A1Gard
  * @time :  6 Aug 2011
  * update : 09 Aug 2016
- * @vertion : 1.3.2
+ * @vertion : 1.4
  *)
 
 interface

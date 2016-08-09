@@ -3,7 +3,8 @@ The best Delphi & lazarus unit for convert windows standard DateTime to PersianD
 
 --------------------------------------------------------
 
-
+###version 1.4 
+added lazarus component
 
 ###version 1.3.1:
 some bug fixed<br />
